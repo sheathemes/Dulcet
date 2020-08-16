@@ -1,0 +1,649 @@
+<!--
+
+╭━━━┳╮╱╭┳━━━┳━━━┳━━━━┳╮╱╭┳━━━┳━╮╭━┳━━━┳━━━╮
+┃╭━╮┃┃╱┃┃╭━━┫╭━╮┃╭╮╭╮┃┃╱┃┃╭━━┫┃╰╯┃┃╭━━┫╭━╮┃
+┃╰━━┫╰━╯┃╰━━┫┃╱┃┣╯┃┃╰┫╰━╯┃╰━━┫╭╮╭╮┃╰━━┫╰━━╮
+╰━━╮┃╭━╮┃╭━━┫╰━╯┃╱┃┃╱┃╭━╮┃╭━━┫┃┃┃┃┃╭━━┻━━╮┃
+┃╰━╯┃┃╱┃┃╰━━┫╭━╮┃╱┃┃╱┃┃╱┃┃╰━━┫┃┃┃┃┃╰━━┫╰━╯┃
+╰━━━┻╯╱╰┻━━━┻╯╱╰╯╱╰╯╱╰╯╱╰┻━━━┻╯╰╯╰┻━━━┻━━━╯
+
+page ⎾DULCET⏌ by sheathemes @ tumblr
+
+- TERMS -
+
+I. Do NOT remove my credit from the index page. Keep it exactly where it is
+II. Do NOT take any part of my code to use for your personal designs
+III. Do NOT claim any part of my code as your own
+IV. NO redistrubuting of any of my code
+V. Editing is allowed. As long as it's NOT being claimed as your own
+ 
+CREDITS
+ 
+> Style-my-Tootips: http://manos.malihu.gr/style-my-tooltips-jquery-plugin/
+
+> Smoothscroll script: https://cdnjs.com/libraries/smoothscroll
+
+> Font icons: http://saturnthms.com/font
+
+> Isotope filtering script: https://isotope.metafizzy.co/filtering.html
+ 
+!-->
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+ 
+<head>
+
+<!--Custom Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito+Sans:300,300i,400,400i,600,600i,700,700i|Titillium+Web:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+<!--Custom Fonts-->
+ 
+<!--Homelinks Icons-->
+<link href="//dl.dropbox.com/s/50g6fbds3rh4m0j/saturnicons.css" rel="stylesheet">
+<!--Homelinks Icons-->
+ 
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="altertnate" type="application/rss+xml" href="{RSS}">
+    <meta http-equiv="x-dns-prefetch-control" content="off"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="portfolio.css">
+ 
+</head>
+
+<style type="text/css">
+:root {
+    --accent: #c0d8da; /*---- CHANGE THE COLOR OF THE MAIN ACCENT ---*/
+    --text: #888;  /*---- CHANGE THE COLOR OF THE TEXT ---*/
+    --container: #fff;  /*---- CHANGE THE COLOR OF THE POSTS BACKGROUND ---*/
+    --accented-text: #fff;  /*---- CHANGE THE COLOR OF THE TEXT COLOR OF THE ACCENT BACKGROUND ---*/
+    --bolded: #000000;  /*---- CHANGE THE COLOR OF BOLD AND LINKS ---*/
+    --border: #f0f0f0;  /*---- CHANGE THE COLOR OF THE POST BORDERS ---*/
+}
+
+/*----------FADE-IN ANIMATION----------*/
+ 
+@keyframes fadein {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-moz-keyframes fadein { /* Firefox */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {opacity:0;}
+    to {opacity:1;}
+}
+ 
+@-o-keyframes fadein { /* Opera */
+    from {opacity:0;}
+    to {opacity: 1;}
+}
+ 
+/*----------TUMBLR CONTROLS----------*/
+ 
+iframe#tumblr_controls, .iframe-controls--desktop {
+    right: 10px !important;
+    top: 25px !important;
+    position: fixed !important;
+    z-index: 99999999999999999999 !important;
+    -webkit-filter: invert(100%);
+    -moz-filter: invert(100%);
+    -o-filter: invert(100%);
+    -webkit-transition: opacity 0.4s linear;opacity: 0.4;
+    -webkit-transition: all 0.8s ease-out;
+    -moz-transition: all 0.8s ease-out;
+    transition: all 0.8s ease-out;
+    display: none;
+}
+ 
+/*----------SCROLLBAR----------*/
+ 
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border: 2px solid var(--container);
+}
+ 
+::-webkit-scrollbar-track {
+    background: transparent;
+    border: 8px solid transparent;
+}
+ 
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+ 
+ 
+/*----------TOOLTIPS----------*/
+ 
+#s-m-t-tooltip {
+    max-width:300px;
+    padding:2px 5px;
+    margin: -20px 7px -2px 20px;
+    background-color: var(--accent); 
+    font-size:9px;
+    letter-spacing:2px;
+    text-transform:lowercase;
+    color: var(--accented-text); 
+    z-index:999999999999999999999999999999999999;
+}
+ 
+/*----------TEXT SELECTION----------*/
+::selection {
+    background: var(--accent);
+    color: var(--accented-text); 
+}
+ 
+::-moz-selection {
+    background: var(--accent);
+    color: var(--accented-text);
+}
+ 
+::-webkit-selection {
+    background: var(--accent);
+    color: var(--accented-text);
+}
+ 
+/*----------THEME BASICS----------*/
+
+body {
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 180%;
+    margin: 0;
+    text-align: left;
+    background: var(--container) url("") center; 
+    background-attachment: fixed;
+    background-repeat: repeat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    animation: fadein 2.5s;
+    -moz-animation: fadein 2.5s; /* Firefox */
+    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+    -o-animation: fadein  2.5s; /* Opera */
+}
+ 
+b,strong {
+    color:var(--accent); 
+    font-weight: 700;
+}
+ 
+i,em {
+    color:var(--accent); 
+}
+ 
+u {
+    color:var(--accent); 
+}
+ 
+hr {
+    width: 30%;
+    height: 1px;
+    background-color: var(--accent);
+    color: var(--accent);
+    border: 0px solid transparent;
+}
+ 
+small,sub,sup {
+    font-size: 10px;
+}
+ 
+a {
+    color: var(--bolded);
+    text-decoration:none;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+ 
+a:hover {
+    color: var(--accent);
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+header {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    top: 0;
+    overflow-x: hidden;
+    background: var(--accent) url("https://static.tumblr.com/uh2chis/IVep40ntj/722811.png") center no-repeat;
+}
+
+#container {
+    width: 80%;
+    position: relative;
+    margin: auto;
+}
+
+.desc-cont {
+    width: 800px;
+    background-color: var(--container);
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -100px;
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.homelinks {
+    margin-top: 5px;
+}
+
+.homelinks a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.sf-home-o, .sf-envelope-3-o, .sf-share-o, .sf-save-o, .sf-cat-o, .sf-clubs-o, .sf-flower-1-o {
+    background-color: var(--accent);
+    color: var(--accented-text);
+    font-size: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 100%;
+    padding: 5px;
+    line-height: 5px;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+
+.sf-home-o:hover, .sf-envelope-3-o:hover, .sf-share-o:hover, .sf-save-o:hover, .sf-cat-o:hover, .sf-clubs-o:hover, .sf-flower-1-o:hover {
+    background: transparent;
+    color: var(--bolded);
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+
+#title {
+    text-align: center;
+    font-family: 'Lora', serif;
+    font-size: 1.4em;
+    color: var(--bolded);
+    text-transform: capitalize;
+}
+
+.description {
+    padding: 10px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#sort {
+    text-align: center;
+}
+ 
+#sort li {
+    display:inline-block;
+    list-style: none;
+    margin: 0 10px;
+}
+ 
+#sort ul {list-style: none; padding: 0;}
+ 
+#sort a {
+    color: var(--text);
+    display:inline-block;
+    background-color: transparent;
+    padding: 0 5px;
+}
+ 
+#sort a:hover {
+    color: var(--bolded);
+    background-color: var(--accent);
+}
+ 
+#sort a:hover, #sort a:active {
+    background-color: var(--accent);
+    color: var(--accented-text);
+}
+ 
+#sort li a.selected {
+    background-color: var(--accent);
+    color: var(--accented-text);
+} 
+
+#port-content {
+    width: 100%;
+    margin: -80px auto 30px;
+    margin-left: 2%;
+}
+
+.portfolio {
+    margin: 30px;
+    padding: 10px;
+    border: 4px double var(--border);
+    position: relative;
+    -moz-transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+}
+ 
+.portfolio .image-cont {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+    transition: 1s;
+}
+
+.portfolio .image-cont img {
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+}
+
+.portfolio:hover .image-cont img {
+    transform: scale(1.3);
+}
+
+.portfolio .details {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color:rgba(255,255,255, 0.8);
+    transform: scale(.5);
+    visibility: hidden;
+    transition: .5s;
+}
+
+.portfolio:hover .details {
+    transform: scale(1);
+    visibility: visible;
+}
+
+.portfolio .details .info {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+
+.port-title {
+    font-size: 1.3em;
+    color: var(--bolded);
+}
+
+.port-link {
+    margin-top: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .5s;
+}
+
+.portfolio:hover .port-link {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.port-link a {
+    font-weight: 600;
+    color: var(--bolded);
+}
+
+.port-link a:hover {
+    color: var(--accent);
+}
+
+/*----------THEME CREDIT/DO NOT REMOVE!!!---------*/
+ 
+.cred {
+    position: fixed;
+    bottom: 25px;
+    right: 30px;
+    z-index: 900;
+}
+
+.cred img {
+    width: 40px;
+    height: 40px;
+}
+</style>
+
+<body>
+
+<header class="header"></header>
+<section id="container">
+    <section class="desc-cont">
+        <h1 id="title">dulcet</h1>
+        <nav class="homelinks">
+            <a href="/" title="home"><span class="sf-home-o"></span></a>  
+            <a href="/ask" title="inbox"><span class="sf-envelope-3-o"></span></a> 
+            <a href="/submit" title="submit"><span class="sf-share-o"></span></a> 
+            <a href="/archive" title="archive"><span class="sf-save-o"></span></a> 
+            <a href="/" title="custom link one"><span class="sf-cat-o"></span></a>
+            <a href="/" title="custom link two"><span class="sf-clubs-o"></span></a>
+            <a href="/" title="custom link three"><span class="sf-flower-1-o"></span></a>
+        </nav>
+        <div class="description">
+        
+        <!-----------Change the main description below----------->   
+        
+            Morbi viverra porta massa ut porta. 
+            Sed erat orci, maximus in maximus quis, semper eget orci. 
+            Mauris pulvinar pellentesque mauris in consequat. 
+            Nulla ac metus pharetra urna tempus hendrerit. 
+            Sed iaculis sit amet metus sit amet laoreet. 
+            Donec dignissim arcu at nulla malesuada, a molestie risus mollis.
+            
+        <!-----------Change the main description below----------->   
+        
+        </div>
+            <div id="sort">
+                <ul id="filters" class="option-set clearfix" data-option-key="filter">
+
+<!-----------Add another filter category below----------->      
+
+<!--------
+
+<li><a href="#filter" data-option-filter=".category-whatever the next number is">category name</a></li>
+
+---------->
+
+<!-----------Change the name of the filter category below-----------> 
+
+<li><a href="#filter" data-option-filter=".portfolio">all</a></li>
+<li><a href="#filter" data-option-filter=".category-one">category one</a></li>
+<li><a href="#filter" data-option-filter=".category-two">category two</a></li>
+<li><a href="#filter" data-option-filter=".category-three">category three</a></li>
+<li><a href="#filter" data-option-filter=".category-four">category four</a></li>
+
+<!-----------Change the name of the filter category above----------->                      
+                </ul>
+            </div>
+    </section>
+
+<div id="port-content" class="clearfix"> 
+
+<!-------This is where you will add/delete/edit the actual content-------> 
+
+<!-------- IF YOU WANT ANOTHER PORTFOLIO POST JUST COPY AND PAST THE CODE BELOW
+
+    <section id="category" class="portfolio category-name"> <!------PORTFOLIO POST START
+            <section class="image-cont">
+                <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
+            </section>
+            <div class="details">
+                <div class="info">
+                    <h1 class="port-title">portfolio title</h1>
+                    <div class="port-desc">portfolio description</div>
+                    <div class="port-link">
+                        <a href="#">link here</a>
+                        </div>
+                </div>
+            </div>
+        </section> 
+        
+--------->
+
+    	<section id="category" class="portfolio category-one"> <!-------------------PORTFOLIO POST START------------------->
+        	<section class="image-cont">
+            	<img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
+        	</section>
+        	<div class="details">
+            	<div class="info">
+                	<h1 class="port-title">portfolio title</h1>
+                	<div class="port-desc">portfolio description</div>
+                	<div class="port-link">
+                    	<a href="#">link here</a>
+                    </div>
+            	</div>
+        	</div>
+    	</section> <!-------------------PORTFOLIO POST END------------------->
+
+    	<section id="category" class="portfolio category-two"> <!-------------------PORTFOLIO POST START------------------->
+            <section class="image-cont">
+                <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
+            </section>
+            <div class="details">
+                <div class="info">
+                    <h1 class="port-title">portfolio title</h1>
+                    <div class="port-desc">portfolio description</div>
+                    <div class="port-link">
+                        <a href="#">link here</a>
+                        </div>
+                </div>
+            </div>
+        </section> <!-------------------PORTFOLIO POST END------------------->
+
+        <section id="category" class="portfolio  category-three"> <!-------------------PORTFOLIO POST START------------------->
+                <section class="image-cont">
+                    <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
+                </section>
+                <div class="details">
+                    <div class="info">
+                        <h1 class="port-title">portfolio title</h1>
+                        <div class="port-desc">portfolio description</div>
+                        <div class="port-link">
+                            <a href="#">link here</a>
+                            </div>
+                    </div>
+                </div>
+        </section> <!-------------------PORTFOLIO POST END------------------->
+
+        <section id="category" class="portfolio category-four"> <!-------------------PORTFOLIO POST START------------------->
+                    <section class="image-cont">
+                        <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
+                    </section>
+                    <div class="details">
+                        <div class="info">
+                            <h1 class="port-title">portfolio title</h1>
+                            <div class="port-desc">portfolio description</div>
+                            <div class="port-link">
+                                <a href="#">link here</a>
+                                </div>
+                        </div>
+                    </div>
+       	</section> <!-------------------PORTFOLIO POST END------------------->
+
+</section>
+</div> <!-------------------PORTFOLIO SECTION END------------------->
+
+<!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
+<a href="https://sheathemes.tumblr.com" class="cred" title="theme by sheathemes"><img src="https://static.tumblr.com/pbhn8p5/FZ7osqe6a/credit.png"></a>
+<!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
+
+<!------------Smooth Scroll Script------------>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+<!------------Smooth Scroll Script------------>
+
+<!-----------Isotope Filter Script----------->
+<script src="https://static.tumblr.com/fuu6t9w/eubml0pm0/jquery.isotope.min.js"></script>
+<!-----------Isotope Filter Script----------->
+
+<!-----------Tooltips Script----------->
+<script src="https://static.tumblr.com/p0knose/nRYp3ktqo/jquery.style-my-tooltips.js"></script>
+<!-----------Tooltips Script----------->
+
+<script>
+
+$(document).ready(function(){
+    //isotope filtering
+    var $container = $('#port-content');
+   
+    $container.isotope({
+    itemSelector : '.portfolio'
+    });
+   
+   
+    var $optionSets = $('#sort .option-set'),
+    $optionLinks = $optionSets.find('a');
+   
+    $optionLinks.click(function(){
+    var $this = $(this);
+    // don't proceed if already selected
+    if ( $this.hasClass('selected') ) {
+    return false;
+    }
+    var $optionSet = $this.parents('.option-set');
+    $optionSet.find('.selected').removeClass('selected');
+    $this.addClass('selected');
+   
+    // make option object dynamically, i.e. { filter: '.my-filter-class' }
+    var options = {},
+    key = $optionSet.attr('data-option-key'),
+    value = $this.attr('data-option-filter');
+    // parse 'false' as false boolean
+    value = value === 'false' ? false : value;
+    options[ key ] = value;
+    if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+    // changes in layout modes need extra logic
+    changeLayoutMode( $this, options )
+    } else {
+    // otherwise, apply new options
+    $container.isotope( options );
+    }
+   
+    return false;
+    });
+    //tooltips
+    (function($){ $(document).ready(function(){
+    $("a[title]").style_my_tooltips({
+    tip_follows_cursor:true,
+    tip_delay_time:10,
+    tip_fade_speed:200,
+    attribute:"title"});
+});
+})(jQuery);
+});
+    
+</script>
+
+</body>
+</html> <!---------------------------END--------------------------->
