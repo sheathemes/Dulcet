@@ -35,12 +35,12 @@ CREDITS
 <head>
 
 <!--Custom Fonts-->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito+Sans:300,300i,400,400i,600,600i,700,700i|Titillium+Web:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Open+Sans:wght@400;700&family=Playfair+Display&family=Poppins:wght@400;700&family=Roboto:wght@400;700&family=Epilogue:wght@400;700&display=swap" rel="stylesheet">
 <!--Custom Fonts-->
  
 <!--Homelinks Icons-->
-<link href="//dl.dropbox.com/s/50g6fbds3rh4m0j/saturnicons.css" rel="stylesheet">
+<link href="//solrainha.github.io/saturnicons/saturnicons.css" rel="stylesheet">
 <!--Homelinks Icons-->
  
     <title>{Title}</title>
@@ -55,12 +55,25 @@ CREDITS
 
 <style type="text/css">
 :root {
-    --accent: #c0d8da; /*---- CHANGE THE COLOR OF THE MAIN ACCENT ---*/
-    --text: #888;  /*---- CHANGE THE COLOR OF THE TEXT ---*/
-    --container: #fff;  /*---- CHANGE THE COLOR OF THE POSTS BACKGROUND ---*/
-    --accented-text: #fff;  /*---- CHANGE THE COLOR OF THE TEXT COLOR OF THE ACCENT BACKGROUND ---*/
-    --bolded: #000000;  /*---- CHANGE THE COLOR OF BOLD AND LINKS ---*/
-    --border: #f0f0f0;  /*---- CHANGE THE COLOR OF THE POST BORDERS ---*/
+    --accent: #7D4B30;
+    --accented-text: #ffffff;
+    --main-background: #f8f8f8;
+    --main-font: 13px;
+    --main-font-color: #444444;
+    --header-title: #000000;
+    --header-content-background: #ffffff;
+    --bolded: #000000;
+    --italic: #7D4B30;
+    --underline: #7D4B30;
+    --main-links: #000000;
+    --link-hover: #c1d9cd;
+    --scrollbar: #291B16;
+    --text-selection-background: #c1d9cd;
+    --text-selection: #000000;
+    --tooltip: #fff;
+    --tooltip-background: #291B16;
+    --post-borders: #f4f4f4;
+    --portfolio-background: #ffffff;
 }
 
 /*----------FADE-IN ANIMATION----------*/
@@ -105,7 +118,7 @@ iframe#tumblr_controls, .iframe-controls--desktop {
 /*----------SCROLLBAR----------*/
  
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
     height: 6px;
 }
 ::-webkit-scrollbar-button {
@@ -113,32 +126,32 @@ iframe#tumblr_controls, .iframe-controls--desktop {
     height: 0px;
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border: 2px solid var(--container);
+    background-color: var(--scrollbar);
+    border-radius: 20px;
+    border: 2px solid var(--main-background);
 }
  
 ::-webkit-scrollbar-track {
-    background: transparent;
-    border: 8px solid transparent;
+    background: var(--portfolio-background);
+    border: 8px solid var(--portfolio-background);
+    border-radius: 20px;
 }
  
 ::-webkit-scrollbar-corner {
     background: transparent;
 }
  
- 
 /*----------TOOLTIPS----------*/
  
-#s-m-t-tooltip {
-    max-width:300px;
-    padding:2px 5px;
-    margin: -20px 7px -2px 20px;
-    background-color: var(--accent); 
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:lowercase;
-    color: var(--accented-text); 
-    z-index:999999999999999999999999999999999999;
+.tippy-tooltip.custom-theme {
+    background-color: var(--tooltip-background);
+    color: var(--tooltip); 
+    text-align:center;
+    font-size: 12px;
+}
+ 
+.tippy-tooltip.custom-theme .tippy-svg-arrow {
+  fill: var(--tooltip-background);
 }
  
 /*----------TEXT SELECTION----------*/
@@ -161,13 +174,13 @@ iframe#tumblr_controls, .iframe-controls--desktop {
 
 body {
     color: var(--text);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    font-size: 13px;
+    font-size: var(--main-font);
     line-height: 180%;
     margin: 0;
     text-align: left;
-    background: var(--container) url("") center; 
+    background: var(--main-background) url("") center; 
     background-attachment: fixed;
     background-repeat: repeat;
     -webkit-font-smoothing: antialiased;
@@ -179,16 +192,16 @@ body {
 }
  
 b,strong {
-    color:var(--accent); 
+    color:var(--bolded); 
     font-weight: 700;
 }
  
 i,em {
-    color:var(--accent); 
+    color:var(--italic); 
 }
  
 u {
-    color:var(--accent); 
+    color:var(--underline); 
 }
  
 hr {
@@ -197,6 +210,18 @@ hr {
     background-color: var(--accent);
     color: var(--accent);
     border: 0px solid transparent;
+}
+
+h1,h2,h3 {
+    font-weight: 700;
+    font-size: 1.4em;
+    color: var(--bolded);
+}
+ 
+h4,h5,h6 {
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--bolded);
 }
  
 small,sub,sup {
@@ -220,14 +245,18 @@ a:hover {
     transition-duration: 0.5s;
 }
 
+/*----------HEADER----------*/
+
 header {
     width: 100%;
-    height: 350px;
+    height: 200px;
     position: relative;
     top: 0;
     overflow-x: hidden;
-    background: var(--accent) url("https://static.tumblr.com/uh2chis/IVep40ntj/722811.png") center no-repeat;
+    background: var(--accent) url("") center no-repeat;
 }
+
+/*----------CONTAINER---------*/
 
 #container {
     width: 80%;
@@ -235,23 +264,26 @@ header {
     margin: auto;
 }
 
+/*----------HEADER DESCRIPTION----------*/
+
 .desc-cont {
     width: 800px;
-    background-color: var(--container);
+    background-color: var(--portfolio-background);
     position: relative;
     padding: 20px;
     box-sizing: border-box;
     left: 0;
     right: 0;
     margin: auto;
-    top: -100px;
+    top: -80px;
     z-index: 400;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px 20px 0 0;
 }
+
+/*----------TUMBLR LINKS----------*/
 
 .homelinks {
     margin-top: 5px;
@@ -265,12 +297,12 @@ header {
 .sf-home-o, .sf-envelope-3-o, .sf-share-o, .sf-save-o, .sf-cat-o, .sf-clubs-o, .sf-flower-1-o {
     background-color: var(--accent);
     color: var(--accented-text);
-    font-size: 12px;
-    height: 12px;
+    font-size: 16px;
+    height: 16px;
     display: inline-block;
     border-radius: 100%;
-    padding: 5px;
-    line-height: 5px;
+    padding: 10px;
+    line-height: 10px;
     -webkit-transition: all 0.6s ease-in-out;
     -moz-transition: all 0.6s ease-in-out;
     -o-transition: all 0.6s ease-in-out;
@@ -279,7 +311,7 @@ header {
 
 .sf-home-o:hover, .sf-envelope-3-o:hover, .sf-share-o:hover, .sf-save-o:hover, .sf-cat-o:hover, .sf-clubs-o:hover, .sf-flower-1-o:hover {
     background: transparent;
-    color: var(--bolded);
+    color: var(--main-links);
     -webkit-transition: all 0.6s ease-in-out;
     -moz-transition: all 0.6s ease-in-out;
     -o-transition: all 0.6s ease-in-out;
@@ -288,17 +320,21 @@ header {
 
 #title {
     text-align: center;
-    font-family: 'Lora', serif;
+    font-family: 'Merriweather', serif;
     font-size: 1.4em;
-    color: var(--bolded);
-    text-transform: capitalize;
+    color: var(--header-title);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--post-borders);
+    padding: 0 10px 10px;
 }
 
 .description {
     padding: 10px;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
 }
+
+/*----------CATEGORY LINKS----------*/
 
 #sort {
     text-align: center;
@@ -313,14 +349,15 @@ header {
 #sort ul {list-style: none; padding: 0;}
  
 #sort a {
-    color: var(--text);
+    color: var(--main-links);
     display:inline-block;
     background-color: transparent;
-    padding: 0 5px;
+    padding: 0 20px;
+    font-weight: 700;
 }
  
 #sort a:hover {
-    color: var(--bolded);
+    color: var(--acented-text);
     background-color: var(--accent);
 }
  
@@ -336,14 +373,16 @@ header {
 
 #port-content {
     width: 100%;
-    margin: -80px auto 30px;
+    margin: -20px auto 30px;
     margin-left: 2%;
 }
+
+/*----------PORTFOLIO SECTION----------*/
 
 .portfolio {
     margin: 30px;
     padding: 10px;
-    border: 4px double var(--border);
+    background-color: var(--portfolio-background);
     position: relative;
     -moz-transition-duration: 1s;
     -webkit-transition-duration: 1s;
@@ -422,26 +461,47 @@ header {
 
 /*----------THEME CREDIT/DO NOT REMOVE!!!---------*/
  
-.cred {
+#bottom {
+    bottom: 18px;
     position: fixed;
-    bottom: 25px;
     right: 30px;
-    z-index: 900;
+    z-index: 99;
 }
 
-.cred img {
-    width: 40px;
-    height: 40px;
+#bottom a:hover {
+    color: var(--link-hover);
 }
+ 
+.cred {
+    padding: 3px;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--accented-text);
+    line-height: 18px;
+    text-align: center;
+}
+ 
+.la-arrow-circle-up {
+    padding: 3px;
+    font-size: 18px;
+    width: 18px;
+    display: block;
+    background-color: var(--accent);
+    color: var(--accented-text);
+}
+
 </style>
 
 <body>
 
-<header class="header"></header>
-<section id="container">
-    <section class="desc-cont">
-        <h1 id="title">dulcet</h1>
-        <nav class="homelinks">
+<header class="header"></header> <!-----------Top Banner-----------> 
+<section id="container"> <!-----------Main Container-----------> 
+    <section class="desc-cont"> <!-----------Header-----------> 
+        <h1 id="title">dulcet</h1> <!-----------Page Title-----------> 
+        <nav class="homelinks"> <!-----------Tumblr Links-----------> 
             <a href="/" title="home"><span class="sf-home-o"></span></a>  
             <a href="/ask" title="inbox"><span class="sf-envelope-3-o"></span></a> 
             <a href="/submit" title="submit"><span class="sf-share-o"></span></a> 
@@ -449,7 +509,7 @@ header {
             <a href="/" title="custom link one"><span class="sf-cat-o"></span></a>
             <a href="/" title="custom link two"><span class="sf-clubs-o"></span></a>
             <a href="/" title="custom link three"><span class="sf-flower-1-o"></span></a>
-        </nav>
+        </nav> <!-----------Tumblr Links-----------> 
         <div class="description">
         
         <!-----------Change the main description below----------->   
@@ -464,6 +524,7 @@ header {
         <!-----------Change the main description below----------->   
         
         </div>
+        
             <div id="sort">
                 <ul id="filters" class="option-set clearfix" data-option-key="filter">
 
@@ -486,7 +547,7 @@ header {
 <!-----------Change the name of the filter category above----------->                      
                 </ul>
             </div>
-    </section>
+    </section> <!-----------Header-----------> 
 
 <div id="port-content" class="clearfix"> 
 
@@ -494,9 +555,44 @@ header {
 
 <!-------- IF YOU WANT ANOTHER PORTFOLIO POST JUST COPY AND PAST THE CODE BELOW
 
-    <section id="category" class="portfolio category-name"> <!------PORTFOLIO POST START
+    <section id="category" class="portfolio category-name">
+        <section class="image-cont">
+            <img src="https://static.tumblr.com/uh2chis/IPvqlac69/placeholder.png">
+        </section>
+            <div class="details">
+                <div class="info">
+                    <h1 class="port-title">portfolio title</h1>
+                    <div class="port-desc">portfolio description</div>
+                    <div class="port-link">
+                        <a href="#">link here</a>
+                    </div>
+                </div>
+            </div>
+    </section> 
+        
+--------->
+
+<!-------------------PORTFOLIO POST START------------------->
+    	<section id="category" class="portfolio category-one"> 
+        	<section class="image-cont">
+            	<img src="https://static.tumblr.com/uh2chis/f83qlcr02/placeholder-2.png">
+        	</section>
+        	<div class="details">
+            	<div class="info">
+                	<h1 class="port-title">portfolio title</h1>
+                	<div class="port-desc">portfolio description</div>
+                	<div class="port-link">
+                    	<a href="#">link here</a>
+                    </div>
+            	</div>
+        	</div>
+    	</section> 
+<!-------------------PORTFOLIO POST END------------------->
+
+<!-------------------PORTFOLIO POST START------------------->
+    	<section id="category" class="portfolio category-two"> 
             <section class="image-cont">
-                <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
+                <img src="https://static.tumblr.com/uh2chis/f83qlcr02/placeholder-2.png">
             </section>
             <div class="details">
                 <div class="info">
@@ -508,42 +604,12 @@ header {
                 </div>
             </div>
         </section> 
-        
---------->
+<!-------------------PORTFOLIO POST END------------------->
 
-    	<section id="category" class="portfolio category-one"> <!-------------------PORTFOLIO POST START------------------->
-        	<section class="image-cont">
-            	<img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
-        	</section>
-        	<div class="details">
-            	<div class="info">
-                	<h1 class="port-title">portfolio title</h1>
-                	<div class="port-desc">portfolio description</div>
-                	<div class="port-link">
-                    	<a href="#">link here</a>
-                    </div>
-            	</div>
-        	</div>
-    	</section> <!-------------------PORTFOLIO POST END------------------->
-
-    	<section id="category" class="portfolio category-two"> <!-------------------PORTFOLIO POST START------------------->
-            <section class="image-cont">
-                <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
-            </section>
-            <div class="details">
-                <div class="info">
-                    <h1 class="port-title">portfolio title</h1>
-                    <div class="port-desc">portfolio description</div>
-                    <div class="port-link">
-                        <a href="#">link here</a>
-                        </div>
-                </div>
-            </div>
-        </section> <!-------------------PORTFOLIO POST END------------------->
-
-        <section id="category" class="portfolio  category-three"> <!-------------------PORTFOLIO POST START------------------->
-                <section class="image-cont">
-                    <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
+<!-------------------PORTFOLIO POST START------------------->
+    <section id="category" class="portfolio  category-three"> 
+        <section class="image-cont">
+            <img src="https://static.tumblr.com/uh2chis/f83qlcr02/placeholder-2.png">
                 </section>
                 <div class="details">
                     <div class="info">
@@ -551,32 +617,38 @@ header {
                         <div class="port-desc">portfolio description</div>
                         <div class="port-link">
                             <a href="#">link here</a>
-                            </div>
-                    </div>
-                </div>
-        </section> <!-------------------PORTFOLIO POST END------------------->
-
-        <section id="category" class="portfolio category-four"> <!-------------------PORTFOLIO POST START------------------->
-                    <section class="image-cont">
-                        <img src="https://static.tumblr.com/uh2chis/n3dp40l6w/portfolio-placeholder.png">
-                    </section>
-                    <div class="details">
-                        <div class="info">
-                            <h1 class="port-title">portfolio title</h1>
-                            <div class="port-desc">portfolio description</div>
-                            <div class="port-link">
-                                <a href="#">link here</a>
-                                </div>
                         </div>
                     </div>
-       	</section> <!-------------------PORTFOLIO POST END------------------->
+                </div>
+    </section> 
+<!-------------------PORTFOLIO POST END------------------->
 
-</section>
+<!-------------------PORTFOLIO POST START------------------->
+    <section id="category" class="portfolio category-four"> 
+        <section class="image-cont">
+            <img src="https://static.tumblr.com/uh2chis/f83qlcr02/placeholder-2.png">
+        </section>
+            <div class="details">
+                <div class="info">
+                    <h1 class="port-title">portfolio title</h1>
+                    <div class="port-desc">portfolio description</div>
+                    <div class="port-link">
+                        <a href="#">link here</a>
+                    </div>
+                </div>
+            </div>
+       	</section> 
+<!-------------------PORTFOLIO POST END------------------->
+        
+        
+ </section> <!-----------Main Container----------->       
 </div> <!-------------------PORTFOLIO SECTION END------------------->
 
+<footer id="bottom">
 <!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
-<a href="https://sheathemes.tumblr.com" class="cred" title="theme by sheathemes"><img src="https://static.tumblr.com/pbhn8p5/FZ7osqe6a/credit.png"></a>
+ <a href="https://sheathemes.tumblr.com" class="cred" title="theme by sheathemes">&#169;</a>  
 <!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
+</footer>
 
 <!------------Smooth Scroll Script------------>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
@@ -588,7 +660,7 @@ header {
 <!-----------Isotope Filter Script----------->
 
 <!-----------Tooltips Script----------->
-<script src="https://static.tumblr.com/p0knose/nRYp3ktqo/jquery.style-my-tooltips.js"></script>
+<script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
 <!-----------Tooltips Script----------->
 
 <script>
@@ -632,15 +704,17 @@ $(document).ready(function(){
    
     return false;
     });
-    //tooltips
-    (function($){ $(document).ready(function(){
-    $("a[title]").style_my_tooltips({
-    tip_follows_cursor:true,
-    tip_delay_time:10,
-    tip_fade_speed:200,
-    attribute:"title"});
-});
-})(jQuery);
+        tippy('a[title]', { 
+            theme: 'custom', 
+            arrow: tippy.roundArrow, 
+            zIndex: 9999999999, 
+            placement: 'auto',
+            maxWidth: 300, 
+            content(reference) { 
+                const title = reference.getAttribute('title'); 
+                reference.removeAttribute('title'); return title; }, 
+            
+        });
 });
     
 </script>
